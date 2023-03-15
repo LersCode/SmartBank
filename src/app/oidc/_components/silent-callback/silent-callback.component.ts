@@ -9,6 +9,7 @@ export class SilentCallbackComponent implements OnInit {
   constructor(private readonly _authentificationService: AuthService) {}
 
   ngOnInit(): void {
+    console.log('SilentCallbackComponent.ngOnInit()');
     this._authentificationService.silentSignInAuthentication();
   }
 }

@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {
+  LoginCallbackComponent,
+  LogoutCallbackComponent,
+  SilentCallbackComponent,
+} from './oidc/_components';
 import { AuthGuard } from './oidc/_guards/auth/auth.guard';
 import { HomeComponent } from './_components/home/home.component';
-import { LoginComponent } from './_pages/login/login.component';
+import { DashboardComponent } from './_pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'home', canActivate: [AuthGuard], component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'login-callback', component: LoginComponent },
-  { path: 'logout-callback', component: LoginComponent },
-  { path: 'silent-callback', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    component: DashboardComponent,
+    children: [],
+  },
+  { path: 'login-callback', component: LoginCallbackComponent },
+  { path: 'logout-callback', component: LogoutCallbackComponent },
+  { path: 'silent-callback', component: SilentCallbackComponent },
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({

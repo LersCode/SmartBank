@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './_modules/material.module';
-import { LoginComponent } from './_pages/login/login.component';
+import { DashboardComponent } from './_pages/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   LoginCallbackComponent,
@@ -17,7 +17,7 @@ import { HomeComponent } from './_components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    DashboardComponent,
     LogoutCallbackComponent,
     LoginCallbackComponent,
     SilentCallbackComponent,
