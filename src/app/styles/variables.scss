@@ -1,0 +1,26 @@
+body {
+  // primary
+  --primary: #fff;
+  --primary-color: #000;
+  --primary-background-color: #fff;
+
+  //secondary
+  --secondary: #d31f2e;
+  --secondary-color: #d31f2e;
+  --secondary-background-color: #d31f2e;
+
+  //tertiary
+  --tertiary: linear-gradient(to right, #f23939, #d31f2e, #ba0e2a);
+  --tertiary-color: #d31f2e;
+  --tertiary-background-image: linear-gradient(
+    to right,
+    #f23939,
+    #d31f2e,
+    #ba0e2a
+  );
+
+  //quaternary
+  --quaternary: #1e1f20;
+  --quaternary-color: #1e1f20;
+  --quaternary-background-color: #1e1f20;
+}
