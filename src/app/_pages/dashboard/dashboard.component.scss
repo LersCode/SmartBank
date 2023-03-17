@@ -1,0 +1,41 @@
+div.data {
+  gap: 20px;
+}
+
+.main {
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  height: fit-content;
+  padding: 20px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+#accbal,
+#activity {
+  margin: 0 auto;
+  width: 50%;
+}
+
+#accbal {
+  gap: 20px;
+  card {
+    width: 100%;
+  }
+}
+
+#activity {
+  div.card {
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.01);
+
+    &:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}

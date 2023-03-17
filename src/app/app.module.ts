@@ -7,25 +7,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './_modules/material.module';
 import { DashboardComponent } from './_pages/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {
-  LoginCallbackComponent,
-  LogoutCallbackComponent,
-  SilentCallbackComponent,
-} from './oidc/_components';
-import { HomeComponent } from './_components/home/home.component';
+import { HomeComponent } from './_pages/home/home.component';
+import { HeaderComponent } from './_components/header/header.component';
+import { FooterComponent } from './_components/footer/footer.component';
+import { DashboardCardComponent } from './_components/dashboard-card/dashboard-card.component';
+import { NgAuthModule } from './oidc/ng-auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LogoutCallbackComponent,
-    LoginCallbackComponent,
-    SilentCallbackComponent,
     HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    DashboardCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgAuthModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,

@@ -1,2 +1,41 @@
-<p>Login</p>
-<button mat-flat-button color="primary" routerLink="/home">Home</button>
+<sb-header></sb-header>
+<div class="main d-flex flex-column">
+  <section id="accbal" class="d-flex">
+    <card title="Account" btntxt="Edit profile">
+      <div class="data d-flex flex-row">
+        <div class="d-flex flex-column text-left">
+          <span>Name</span>
+          <span>IBAN</span>
+          <span>BIC</span>
+        </div>
+        <div class="d-flex flex-column text-left">
+          <span>Lars Boss</span>
+          <span>DE02120300000000202051</span>
+          <span>MARKDEFF</span>
+        </div>
+      </div>
+    </card>
+    <card title="Balance">
+      <div class="data text-right">
+        <span class="mat-title">300</span>
+        <span class="mat-title">&nbsp;€</span>
+      </div>
+    </card>
+  </section>
+  <section id="activity">
+    <card title="Activity" btntxt="Tranfer money">
+      <div *ngFor="let act of activities" class="card center">
+        <div class="mat-body-1">
+          <span class="d-block">{{ act.name }}</span>
+          <span class="d-block">{{ act.iban }}</span>
+        </div>
+        <div class="mat-subheading-1 m-0 center">
+          <span>{{ act.amount }}</span>
+          <span>&nbsp;€</span>
+        </div>
+      </div>
+    </card>
+  </section>
+</div>
+<button mat-flat-button color="accent" routerLink="/home">Home</button>
+<sb-footer></sb-footer>

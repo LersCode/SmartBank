@@ -2,6 +2,8 @@
 
 @import "./app/styles/variables.scss";
 @import "./app/styles/components.scss";
+@import "./app/styles/theme.scss";
+@import "./app/styles/classes.scss";
 
 *,
 html {
@@ -14,5 +16,6 @@ body {
 }
 body {
   margin: 0;
+  padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

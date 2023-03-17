@@ -1,0 +1,26 @@
+header {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--primary-background-color);
+  box-shadow: 0 2px 5px 0 rgba(30, 31, 32, 0.25);
+
+  .menu {
+    gap: 30px;
+    max-width: 50%;
+    line-height: 24px;
+
+    mat-icon {
+      font-size: 28px;
+    }
+
+    span {
+      margin: 0;
+      margin-left: 5px;
+      color: var(--secondary-color);
+    }
+  }
+}

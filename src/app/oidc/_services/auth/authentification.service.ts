@@ -7,9 +7,7 @@ import {
 } from 'oidc-client';
 import { UserManagerSettings } from '../../_models';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
   isUserDefined: boolean = false;
   private _user: User | null = null;
@@ -60,27 +58,28 @@ export class AuthService {
   private getUsermanager() {
     if (this._userManager) return;
 
-    const UserManagerSettingss: UserManagerSettings = new UserManagerSettings();
+    const userManagerSettings: UserManagerSettings = new UserManagerSettings();
     // set up settings
-    UserManagerSettingss.authority = 'http://localhost:9081/realms/threebit'; //website that is responsible for authorization
-    UserManagerSettingss.client_id = 'web_app'; //unique name to identify the project
-    UserManagerSettingss.response_type = 'code'; //desired autorization processing flow - for angular it's suitable code flow
-    UserManagerSettingss.scope = 'profile'; // specify the access privileges, specifies the information returned about the authenticated user
+    userManagerSettings.authority = 'http://localhost:9081/realms/threebit'; //website that is responsible for authorization
+    userManagerSettings.client_id = 'web_app'; //unique name to identify the project
+    userManagerSettings.response_type = 'code'; //desired autorization processing flow - for angular it's suitable code flow
+    userManagerSettings.scope = 'profile'; // specify the access privileges, specifies the information returned about the authenticated user
     // Standard Scopes: openid, profile
 
-    UserManagerSettingss.redirect_uri = 'http://localhost:4200/login-callback'; //start login process
-    UserManagerSettingss.post_logout_redirect_uri =
+    userManagerSettings.redirect_uri = 'http://localhost:4200/login-callback'; //start login process
+    userManagerSettings.post_logout_redirect_uri =
       'http://localhost:4200/logout-callback'; //start logout process
 
-    UserManagerSettingss.automaticSilentRenew = true;
-    UserManagerSettingss.silent_redirect_uri =
-      'https://localhost:4200/silent-refresh.html'; //silent renew oidc doing it automatically
+    userManagerSettings.automaticSilentRenew = true;
+    userManagerSettings.silent_redirect_uri =
+      'https://localhost:4200/silent-callback.html';
+    // 'https://localhost:4200/silent-refresh.html'; //silent renew oidc doing it automatically
 
-    UserManagerSettingss.userStore = new WebStorageStateStore({
+    userManagerSettings.userStore = new WebStorageStateStore({
       store: window.localStorage,
     }); //store user data in local storage
 
-    this._userManager = new UserManager(UserManagerSettingss);
+    this._userManager = new UserManager(userManagerSettings);
     this._userManager.getUser().then((user) => {
       this._user = user;
       this.isUserDefined = true;

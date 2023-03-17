@@ -11,7 +11,7 @@ body {
 
   //tertiary
   --tertiary: linear-gradient(to right, #f23939, #d31f2e, #ba0e2a);
-  --tertiary-color: #d31f2e;
+  --tertiary-color: linear-gradient(to right, #f23939, #d31f2e, #ba0e2a);
   --tertiary-background-image: linear-gradient(
     to right,
     #f23939,

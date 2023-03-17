@@ -1,0 +1,15 @@
+<div class="card border-radius box-shadow">
+  <button
+    *ngIf="btntxt.length > 0"
+    mat-button
+    color="accent"
+    class="mat-body-2"
+    (click)="onClick()"
+  >
+    {{ btntxt }}
+  </button>
+  <span *ngIf="title.length > 0" class="title d-block mat-title">
+    {{ title }}
+  </span>
+  <ng-content></ng-content>
+</div>

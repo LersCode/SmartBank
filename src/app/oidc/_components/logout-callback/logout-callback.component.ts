@@ -8,13 +8,13 @@ import { AuthService } from '../../_services';
 })
 export class LogoutCallbackComponent implements OnInit {
   constructor(
-    private readonly _authentificationService: AuthService,
+    private readonly _authService: AuthService,
     private readonly _router: Router
   ) {}
 
-  ngOnInit(): void {
-    this._authentificationService.completeLogout();
+  ngOnInit() {
+    this._authService.completeLogout();
 
-    this._router.navigate(['home']);
+    this._router.navigate(['dashboard']);
   }
 }

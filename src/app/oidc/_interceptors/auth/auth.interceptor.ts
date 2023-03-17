@@ -19,30 +19,27 @@ export class AuthInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(
-    request: HttpRequest<unknown>,
+    req: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const accessToken = this._authService.getAccessToken();
-    const headers = request.headers.set(
-      'Authorization',
-      `Bearer ${accessToken}`
-    );
-    const authReq = request.clone({ headers });
+    const headers = req.headers.set('Authorization', `Bearer ${accessToken}`);
+    const authReq = req.clone({ headers });
 
     return next.handle(authReq).pipe(
-      tap(
-        () => {},
-        (err) => {
+      tap({
+        error: (err) => {
           const respError = err as HttpErrorResponse;
           if (
             respError &&
             (respError.status === 401 || respError.status === 403)
           ) {
             debugger;
+            console.error('Unauthorized');
             this._router.navigate(['/unauthorized']);
           }
-        }
-      )
+        },
+      })
     );
   }
 }

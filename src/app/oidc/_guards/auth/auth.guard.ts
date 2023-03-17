@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { AuthService } from '../../_services';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthGuard implements CanActivate {
   constructor(private readonly _authService: AuthService) {}
 
@@ -13,6 +11,6 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     await this._authService.startAuthentication();
-    return false;
+    return true;
   }
 }

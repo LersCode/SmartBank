@@ -6,7 +6,7 @@ import {
   SilentCallbackComponent,
 } from './oidc/_components';
 import { AuthGuard } from './oidc/_guards/auth/auth.guard';
-import { HomeComponent } from './_components/home/home.component';
+import { HomeComponent } from './_pages/home/home.component';
 import { DashboardComponent } from './_pages/dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -15,8 +15,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     canActivate: [AuthGuard],
-    component: DashboardComponent,
-    children: [],
+    children: [{ path: '', component: DashboardComponent }],
   },
   { path: 'login-callback', component: LoginCallbackComponent },
   { path: 'logout-callback', component: LogoutCallbackComponent },
