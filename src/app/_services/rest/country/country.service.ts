@@ -9,9 +9,9 @@ import { RestService } from '../rest.service';
 export class CountryService {
   private readonly baseUrl = 'country';
 
-  constructor(private restService: RestService) {}
+  constructor(private _restService: RestService) {}
 
   public getCountrys(): Observable<Country[]> {
-    return this.restService.get(this.baseUrl + '/all');
+    return this._restService.get(this.baseUrl + '/all');
   }
 }

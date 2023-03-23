@@ -30,11 +30,11 @@ import { TransactionModalComponent } from './_components/_modals/transaction-mod
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgAuthModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
+    NgAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

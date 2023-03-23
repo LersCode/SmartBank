@@ -7,7 +7,9 @@ import {
 } from 'oidc-client';
 import { UserManagerSettings } from '../../_models';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthService {
   isUserDefined: boolean = false;
   private _user: User | null = null;

@@ -100,5 +100,10 @@
       </mat-paginator> -->
     </card>
   </section>
+  <section>
+    <div *ngFor="let country of countrys$ | async; index as i">
+      <span>{{ country.name + " " + i }}</span>
+    </div>
+  </section>
 </div>
 <sb-footer></sb-footer>

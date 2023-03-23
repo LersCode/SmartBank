@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/oidc/_services';
-import { UserService } from 'src/app/_services/rest/user/user.service';
 
 @Component({
   selector: 'sb-header',
@@ -12,7 +11,7 @@ export class HeaderComponent implements OnInit {
   login: boolean = false;
 
   constructor(
-    private readonly _httpAuth: AuthService,
+    public _httpAuth: AuthService,
     private readonly _router: Router
   ) {}
 
@@ -26,7 +25,6 @@ export class HeaderComponent implements OnInit {
   }
 
   async doLogout() {
-    console.log('yeet');
     await this._httpAuth.completeLogout();
     this.login = this._httpAuth.isLoggedIn();
     this._router.navigate(['/']);

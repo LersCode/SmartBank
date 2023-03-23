@@ -5,7 +5,6 @@ import {
   LogoutCallbackComponent,
   SilentCallbackComponent,
 } from './oidc/_components';
-import { AuthGuard } from './oidc/_guards/auth/auth.guard';
 import { HomeComponent } from './_pages/home/home.component';
 import { DashboardComponent } from './_pages/dashboard/dashboard.component';
 

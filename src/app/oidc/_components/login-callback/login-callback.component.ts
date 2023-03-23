@@ -14,7 +14,7 @@ export class LoginCallbackComponent implements OnInit {
 
   async ngOnInit() {
     await this._authService.completeAuthentication();
-
+    console.log('---');
     this._router.navigate(['/home']);
   }
 }
