@@ -15,6 +15,6 @@ export class LogoutCallbackComponent implements OnInit {
   ngOnInit() {
     this._authService.completeLogout();
 
-    this._router.navigate(['dashboard']);
+    this._router.navigate(['/home']);
   }
 }

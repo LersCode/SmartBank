@@ -1,0 +1,37 @@
+<div
+  class="modal-wrapper"
+  style="
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 100vh;
+    min-width: 100%;
+    z-index: 99;
+  "
+>
+  <div class="modal-form-wrapper">
+    <form [formGroup]="trnsctnFrmGrp" class="center" style="min-height: 100vh">
+      <card title="Profile">
+        <div class="d-flex flex-row" style="width: max-content; gap: 20px">
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>IBAN</mat-label>
+            <input matInput placeholder="IBAN" formControlName="iban" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Amount</mat-label>
+            <input matInput placeholder="Amount" formControlName="amount" />
+          </mat-form-field>
+        </div>
+        <div
+          class="d-flex flex-row"
+          style="gap: 20px; justify-content: flex-end"
+        >
+          <button mat-flat-button (click)="save(false)">Cancel</button>
+          <button mat-flat-button color="accent" (click)="save(true)">
+            Save
+          </button>
+        </div>
+      </card>
+    </form>
+  </div>
+</div>

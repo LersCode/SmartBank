@@ -78,7 +78,7 @@ const routes: Routes = [
 
 ## Create AuthGuard
 
-1. Create service `ng g g oidc/_guards/auth`
+1. Create guard `ng g g oidc/_guards/auth`
    > Note: On generate choose `CanActivate`.
 
 ## Create AuthInterceptor

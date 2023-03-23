@@ -3,16 +3,43 @@
     <span class="m-0 mat-display-2 text-gradient">Simple Bank</span>
   </div>
   <div class="menu center">
-    <div class="center pointer" routerLink="/dashboard">
+    <span routerLink="/home" class="mat-subheading-2 pointer">Home</span>
+    <span *ngIf="login" class="mat-subheading-2 pointer" routerLink="/dashboard"
+      >Dashboard</span
+    >
+    <div *ngIf="login" class="center pointer">
       <mat-icon
         class="text-gradient"
         aria-hidden="false"
         aria-label="person icon"
         fontIcon="person"
+        style="width: 30px"
         >person</mat-icon
       >
-      <span class="mat-subheading-2">Login</span>
+      <span class="mat-subheading-2">Profile</span>
     </div>
-    <button mat-flat-button color="accent">Konto eröffnen</button>
+    <div *ngIf="login == false; else logout" class="center pointer">
+      <mat-icon
+        class="text-gradient"
+        aria-hidden="false"
+        aria-label="person icon"
+        fontIcon="person"
+        style="width: 30px"
+        >login</mat-icon
+      >
+      <span class="mat-subheading-2" (click)="doLogin()">Login</span>
+    </div>
+    <ng-template #logout>
+      <div class="center pointer">
+        <mat-icon
+          class="text-gradient"
+          aria-hidden="false"
+          aria-label="person icon"
+          fontIcon="person"
+          >logout</mat-icon
+        >
+        <span class="mat-subheading-2" (click)="doLogout()">Logout</span>
+      </div>
+    </ng-template>
   </div>
 </header>

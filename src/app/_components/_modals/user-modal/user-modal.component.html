@@ -1,0 +1,68 @@
+<div
+  class="modal-wrapper"
+  style="
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 100vh;
+    min-width: 100%;
+    z-index: 99;
+  "
+>
+  <div class="modal-form-wrapper">
+    <form [formGroup]="usrFrmGrp" class="center" style="min-height: 100vh">
+      <card title="Profile">
+        <div class="d-flex flex-row" style="width: max-content; gap: 20px">
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Firstname</mat-label>
+            <input matInput placeholder="E-Mail" formControlName="firstName" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Lastname</mat-label>
+            <input matInput placeholder="Lastname" formControlName="lastName" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-row" style="width: max-content; gap: 20px">
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Date of birth</mat-label>
+            <input
+              matInput
+              placeholder="Date of birth"
+              formControlName="dateOfBirth"
+            />
+            <mat-icon matSuffix>today</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>E-Mail</mat-label>
+            <input matInput placeholder="E-Mail" formControlName="email" />
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-row" style="width: max-content; gap: 20px">
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country">
+              <mat-option
+                *ngFor="let country of countrys$ | async"
+                [value]="country"
+                >{{ country.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div
+          class="d-flex flex-row"
+          style="gap: 20px; justify-content: flex-end"
+        >
+          <button mat-flat-button (click)="save(false)">Cancel</button>
+          <button mat-flat-button color="accent" (click)="save(true)">
+            Save
+          </button>
+        </div>
+      </card>
+    </form>
+  </div>
+</div>

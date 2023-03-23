@@ -72,8 +72,7 @@ export class AuthService {
 
     userManagerSettings.automaticSilentRenew = true;
     userManagerSettings.silent_redirect_uri =
-      'https://localhost:4200/silent-callback.html';
-    // 'https://localhost:4200/silent-refresh.html'; //silent renew oidc doing it automatically
+      'https://localhost:4200/silent-callback.html'; //silent renew oidc doing it automatically
 
     userManagerSettings.userStore = new WebStorageStateStore({
       store: window.localStorage,
@@ -81,6 +80,7 @@ export class AuthService {
 
     this._userManager = new UserManager(userManagerSettings);
     this._userManager.getUser().then((user) => {
+      console.log(user);
       this._user = user;
       this.isUserDefined = true;
     });

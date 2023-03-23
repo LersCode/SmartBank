@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'dashboard',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [{ path: '', component: DashboardComponent }],
   },
   { path: 'login-callback', component: LoginCallbackComponent },

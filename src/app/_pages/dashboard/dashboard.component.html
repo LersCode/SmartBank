@@ -1,41 +1,104 @@
+<app-user-modal
+  *ngIf="editUser"
+  [(editUser)]="editUser"
+  [user]="user$ | async"
+></app-user-modal>
+<!-- <app-transaction-modal
+  *ngIf="addTransaction"
+  [(addTransaction)]="addTransaction"
+></app-transaction-modal> -->
 <sb-header></sb-header>
 <div class="main d-flex flex-column">
+  <div id="selAcc">
+    <mat-form-field appearance="outline">
+      <mat-label>Select account</mat-label>
+      <mat-select [(value)]="selected" (valueChange)="changeAccount()">
+        <mat-option *ngFor="let act of accounts$ | async" [value]="act.iban">
+          {{ act.iban }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <section id="menu">
+    <button mat-flat-button color="accent">New account</button>
+    <button mat-flat-button color="accent" (click)="editUser = true">
+      Edit profile
+    </button>
+  </section>
   <section id="accbal" class="d-flex">
-    <card title="Account" btntxt="Edit profile">
+    <card title="Account" btntxt="Delete account" (cardClick)="deleteAccount()">
       <div class="data d-flex flex-row">
         <div class="d-flex flex-column text-left">
           <span>Name</span>
-          <span>IBAN</span>
-          <span>BIC</span>
+          <div *ngIf="(selectedAcc$ | async) !== null">
+            <span>Account type</span>
+            <span>IBAN</span>
+          </div>
         </div>
         <div class="d-flex flex-column text-left">
-          <span>Lars Boss</span>
-          <span>DE02120300000000202051</span>
-          <span>MARKDEFF</span>
+          <span>{{
+            (user$ | async)?.firstName + " " + (user$ | async)?.lastName
+          }}</span>
+          <div *ngIf="(selectedAcc$ | async) !== null">
+            <span>{{ (selectedAcc$ | async)?.accountType }}</span>
+            <span>{{ (selectedAcc$ | async)?.iban }}</span>
+          </div>
         </div>
       </div>
     </card>
     <card title="Balance">
-      <div class="data text-right">
-        <span class="mat-title">300</span>
-        <span class="mat-title">&nbsp;€</span>
+      <div class="data text-right mat-title">
+        <span
+          *ngIf="
+            (selectedAcc$ | async) &&
+              (selectedAcc$ | async)!.currentBalance < 0;
+            else elseBalance
+          "
+          style="color: red"
+        >
+          {{ (selectedAcc$ | async)?.currentBalance }}
+        </span>
+        <ng-template #elseBalance>
+          <span style="color: green">
+            {{ (selectedAcc$ | async)?.currentBalance + "&nbsp;€" }}
+          </span>
+        </ng-template>
       </div>
     </card>
   </section>
   <section id="activity">
     <card title="Activity" btntxt="Tranfer money">
-      <div *ngFor="let act of activities" class="card center">
+      <div *ngFor="let trans of transactions$ | async" class="card center">
         <div class="mat-body-1">
-          <span class="d-block">{{ act.name }}</span>
-          <span class="d-block">{{ act.iban }}</span>
+          <span class="d-block">{{ trans.id }}</span>
+          <span class="d-block">{{ trans.targetAccountNumber }}</span>
         </div>
         <div class="mat-subheading-1 m-0 center">
-          <span>{{ act.amount }}</span>
-          <span>&nbsp;€</span>
+          <span *ngIf="trans.amount < 0; else elseBalance" style="color: red">
+            {{ trans.amount }}
+          </span>
+          <ng-template #elseBalance>
+            <span style="color: green">
+              {{ trans.amount + "&nbsp;€" }}
+            </span>
+          </ng-template>
         </div>
       </div>
+      <!-- <mat-paginator
+        #paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="length"
+        [pageSize]="pageSize"
+        [disabled]="false"
+        [showFirstLastButtons]="true"
+        [pageSizeOptions]="pageSizeOptions"
+        [hidePageSize]="false"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+      >
+      </mat-paginator> -->
     </card>
   </section>
 </div>
-<button mat-flat-button color="accent" routerLink="/home">Home</button>
 <sb-footer></sb-footer>

@@ -26,22 +26,11 @@
 1. Run `ng add @angular/material`
 2. Choose the following options:
    - execution => yes
-   - theme => Purple/Green
+   - theme => Indigo/Pink
    - typography => yes
    - animations => yes
 
-## Step 4 -- Import Fonts
-
-1. Go to `src/index.html` and add the following (check for duplets before pasting):
-   ```
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"/>
-   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500&display=swap" rel="stylesheet"/>
-   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500&display=swap" rel="stylesheet"/>
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-   ```
-   > Note: It's not the best use to directly link to google-servers. If thats a problem in your project, follow the links and download the fonts to link them locally!
-
-## Step 5 -- Set root styles
+## Step 4 -- Set root styles
 
 1. Go to `src/styles.scss` and customize the styles so they look like the following:
 
@@ -61,11 +50,11 @@
    }
    ```
 
-## Step 6 -- Restart
+## Step 5 -- Restart
 
 1. Re-start `ng serve`.
 
-## Step 7 -- Create MaterialModule
+## Step 6 -- Create MaterialModule
 
 1. Go to `src/app` and create a file `material.module.ts`.
 2. Copy the following Code into the new file:
@@ -85,7 +74,7 @@
 
    > Note: this file will be used to import all material-modules and to keep the `app.module.ts` clean.
 
-## Step 8 -- Test Material Module(s)
+## Step 7 -- Test Material Module(s)
 
 1. Paste the following into your `app.component.html`:
 
@@ -112,8 +101,8 @@
 
    > Note: You can import all modules you want to use in your project. For a list of all modules, check out the [Material Docs](https://material.angular.io/components/categories).
 
-## Step 9 -- Commit changes
+## Step 8 -- Commit changes
 
 1. Commit your made changes. (e.g. Commit-message: `Imported Material and cleaned project`)
 
-## Step 10 -- Finished 🏁
+## Step 9 -- Finished 🏁

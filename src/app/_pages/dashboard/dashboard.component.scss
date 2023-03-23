@@ -3,7 +3,7 @@ div.data {
 }
 
 .main {
-  width: 100%;
+  width: 50%;
   min-height: calc(100vh - 200px);
   height: fit-content;
   padding: 20px;
@@ -11,10 +11,10 @@ div.data {
   gap: 20px;
 }
 
-#accbal,
-#activity {
-  margin: 0 auto;
-  width: 50%;
+#menu {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 #accbal {

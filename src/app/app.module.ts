@@ -12,6 +12,9 @@ import { HeaderComponent } from './_components/header/header.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { DashboardCardComponent } from './_components/dashboard-card/dashboard-card.component';
 import { NgAuthModule } from './oidc/ng-auth.module';
+import { HttpClientModule } from '@angular/common/http';
+import { UserModalComponent } from './_components/_modals/user-modal/user-modal.component';
+import { TransactionModalComponent } from './_components/_modals/transaction-modal/transaction-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,17 @@ import { NgAuthModule } from './oidc/ng-auth.module';
     HeaderComponent,
     FooterComponent,
     DashboardCardComponent,
+    UserModalComponent,
+    TransactionModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgAuthModule,
     BrowserAnimationsModule,
-    MaterialModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
