@@ -15,6 +15,7 @@ import { NgAuthModule } from './oidc/ng-auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModalComponent } from './_components/_modals/user-modal/user-modal.component';
 import { TransactionModalComponent } from './_components/_modals/transaction-modal/transaction-modal.component';
+import { ProfileComponent } from './_pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TransactionModalComponent } from './_components/_modals/transaction-mod
     DashboardCardComponent,
     UserModalComponent,
     TransactionModalComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

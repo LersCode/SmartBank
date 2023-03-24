@@ -1,0 +1,46 @@
+<sb-header></sb-header>
+<div>
+  <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+    <mat-form-field appearance="fill">
+      <mat-label>Firstname</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Lastname</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>E-Mail</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Birthday</mat-label>
+      <input matInput formControlName="birthday" />
+    </mat-form-field>
+    <!-- Country Select -->
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country">
+        <mat-option *ngFor="let country of countrys" [value]="country.name">
+          {{ country.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-flat-button color="accent" type="submit">Update</button>
+  </form>
+</div>
+<div>
+  <div>
+    <div *ngFor="let transaction of (transactions$ | async)">
+      
+    </div>
+  </div>
+  <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="pageLength"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

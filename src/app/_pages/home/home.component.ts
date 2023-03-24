@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('ja', this._authService.isLoggedIn());
+    // console.log('ja', this._authService.isLoggedIn());
 
     this._sampleService.getSampleData().subscribe((res) => {
-      console.log(res);
+      // console.log(res);
     });
 
     this._sampleService.getSampleSecureData().subscribe((res) => {
-      console.log(res);
+      // console.log(res);
     });
   }
 }

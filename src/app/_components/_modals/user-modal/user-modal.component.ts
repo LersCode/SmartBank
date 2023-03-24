@@ -54,7 +54,7 @@ export class UserModalComponent implements OnInit {
 
   save(state: boolean) {
     if (state) {
-      console.log(1);
+      // console.log(1);
       this._httpUser
         .putUser({
           id: this.user?.id || '',
@@ -67,7 +67,7 @@ export class UserModalComponent implements OnInit {
         .subscribe();
       state = false;
     }
-    console.log(2);
+    // console.log(2);
     this.editUserChange.emit(state);
   }
 }

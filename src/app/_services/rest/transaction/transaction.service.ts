@@ -19,7 +19,15 @@ export class TransactionService {
     return this.restService.put(this.baseUrl, transaction);
   }
 
-  public getTransactionPage(accId: number, pageopt: any): Observable<Transaction[]> {
-    return this.restService.get(this.baseUrl + '/' + accId + '/page?' + pageopt.pageindex + '&' + pageopt.pagesize );
+  public getTransactionPage(accId: number, pageopt: any): Observable<any> {
+    return this.restService.get(
+      this.baseUrl +
+        '/' +
+        accId +
+        '/page?page=' +
+        pageopt.page +
+        '&size=' +
+        pageopt.size
+    );
   }
 }

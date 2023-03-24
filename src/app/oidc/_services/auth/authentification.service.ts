@@ -82,7 +82,7 @@ export class AuthService {
 
     this._userManager = new UserManager(userManagerSettings);
     this._userManager.getUser().then((user) => {
-      console.log(user);
+      // console.log(user);
       this._user = user;
       this.isUserDefined = true;
     });

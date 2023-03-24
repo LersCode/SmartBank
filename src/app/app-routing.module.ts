@@ -7,6 +7,7 @@ import {
 } from './oidc/_components';
 import { HomeComponent } from './_pages/home/home.component';
 import { DashboardComponent } from './_pages/dashboard/dashboard.component';
+import { ProfileComponent } from './_pages/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     children: [{ path: '', component: DashboardComponent }],
   },
+  { path: 'profile', component: ProfileComponent },
   { path: 'login-callback', component: LoginCallbackComponent },
   { path: 'logout-callback', component: LogoutCallbackComponent },
   { path: 'silent-callback', component: SilentCallbackComponent },
