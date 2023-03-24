@@ -90,7 +90,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   transactions$: Observable<Transaction[]> = this._transactionService
     .getTransactionPage(4, {
       page: 0,
-      size: 10,
+      size: this.pageSize,
     })
     .pipe(
       map((t) => {
