@@ -87,9 +87,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   pageLength = 100;
   pageSize = 10;
 
-  transactions$: Observable<Transaction[]> | null = null; 
-  
-  this.transactions$ = this._transactionService
+  transactions$: Observable<Transaction[]> = this._transactionService
     .getTransactionPage(4, {
       page: 0,
       size: 10,
@@ -100,22 +98,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.pageLength = t.totalElements;
         return t.content;
       })
-    )
-    .subscribe();
+    );
 
   handlePageEvent(event: PageEvent) {
     this.transactions$ = this._transactionService
-    .getTransactionPage(4, {
-      page: 0,
-      size: 10,
-    })
-    .pipe(
-      switchMap((t) => {
-        console.log(t);
-        this.pageLength = t.totalElements;
-        return t.content;
+      .getTransactionPage(4, {
+        page: event.pageIndex,
+        size: event.pageSize,
       })
-    )
-    .subscribe();
+      .pipe(
+        map((t) => {
+          console.log(t);
+          this.pageLength = t.totalElements;
+          return t.content;
+        })
+      );
   }
 }
