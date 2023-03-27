@@ -44,3 +44,15 @@
   >
   </mat-paginator>
 </div>
+<div>
+  <div>
+    <span>Select Image</span>
+    <!-- File input that triggers function when file was set -->
+    <input
+      #imageInput
+      type="file"
+      accept="image/*"
+      (change)="processFile($event)"
+    />
+  </div>
+</div>

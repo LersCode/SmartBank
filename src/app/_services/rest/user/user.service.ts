@@ -28,11 +28,14 @@ export class UserService {
     });
   }
 
-  public putUserPhotoPure(photo: File): Observable<any> {
-    const formData = new FormData();
-    formData.append('photo', photo);
-    return this.restService.put(this.baseUrl + '/photoPure', {
-      file: formData,
-    });
+  public putUserPhotoPure(file: any): Observable<any> {
+    // Send the image from a form to the backend
+    return this.restService.put(this.baseUrl + '/photoPure', file);
+
+    /**
+     * The problem was that the backend was expecting a multipart/form-data request, but the frontend was sending a JSON request.
+     * We were sending the image as a JSON object => { photo: file }
+     * Instead we should send the image directly as it is => body = file.
+     */
   }
 }

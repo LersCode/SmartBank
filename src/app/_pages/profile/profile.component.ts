@@ -114,4 +114,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
         })
       );
   }
+  /**
+   * Function to handle file upload
+   */
+  processFile(event: any) {
+    // we only process one file, therefore we only need the first value of the files-list
+    const file: File = event.target.files[0];
+    // create a new form-data
+    const formData = new FormData();
+    // add the file to the form-data
+    formData.append('photo', file);
+    // send the form-data to the backend via userService
+    this._userService.putUserPhotoPure(formData).subscribe((res) => {
+      // Respose will be printed in the console
+      console.log('Response:', res);
+    });
+  }
 }
